@@ -1,0 +1,146 @@
+homeassistant:
+  name: Home
+  latitude: !secret lat
+  longitude: !secret lon
+  elevation: 11
+  temperature_unit: C
+  unit_system: metric
+  time_zone: !secret TZ
+  customize: !include customize.yaml
+  customize_glob: !include customglobs.yaml
+
+zone:
+  name: Home
+  latitude: !secret lat
+  longitude: !secret lon
+  radius: 50
+  icon: mdi:account-multiple
+
+config:
+
+sun:
+
+zeroconf:
+
+customizer:
+  custom_ui: local
+#  hide_attributes:
+#    - node_id
+#    - value_index
+
+frontend:
+  themes:
+    Nominal:
+      paper-toggle-button-checked-button-color: green
+      label-badge-yellow: yellow
+
+panel_iframe:
+  configurator:
+    title: Editor
+    icon: mdi:wrench
+    url: http://rD.local:3218
+
+#upnp:
+#  external_port: 80
+
+http:
+  api_password: !secret api_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+#conversation:
+
+#tts:
+#  - platform: google
+#    language: 'en'
+
+ios:
+
+notify:
+  - name: D
+    platform: html5
+#    gcm_api_key: !secret ben_gcm_api_key
+#    gcm_sender_id: !secret ben_gcm_sender_id
+
+ifttt:
+  key: !secret ifttt_key
+
+mqtt:
+  broker: 192.168.0.200
+  port: 1883
+  client_id: HA_bridge
+  username: pi
+  password: !secret mqtt_key
+  discovery: true
+  discovery_prefix: HA
+
+ffmpeg:
+  ffmpeg_bin: /usr/bin/avconv
+
+#apple_tv:
+#  - host: 192.168.0.106
+#    login_id: 00000000-21de-a038-d734-2fc4bda64bd4
+#    name: SS_Home
+#    start_off: false
+#    credentials:
+
+light:
+  - platform: mqtt_json
+    name: "BackLight"
+    state_topic: "home/roomd/backlight"
+    command_topic: "home/roomd/backlight/set"
+    effect: true
+    effect_list:
+      - bpm
+      - candy cane
+      - confetti
+      - cyclon rainbow
+      - dots
+      - fire
+      - glitter
+      - juggle
+      - lightning
+      - noise
+      - police all
+      - police one
+      - rainbow
+      - rainbow with glitter
+      - ripple
+      - sinelon
+      - solid
+      - twinkle
+    brightness: true
+    flash: true
+    rgb: true
+    optimistic: false
+    qos: 0
+
+###########INCLUDES#####
+input_number: !include inputs/input_number.yaml
+input_select: !include inputs/input_select.yaml
+device_tracker: !include device_tracker.yaml
+sensor: !include_dir_merge_list sensors/
+switch: !include_dir_list switches/
+script: !include_dir_merge_named scripts/
+group: !include_dir_merge_named groups/
+automation: !include_dir_merge_list automations/
+camera: !include camera.yaml
+#binary_sensor: !include binary_sensor.yaml
+
+discovery:
+
+map:
+
+recorder:
+  purge_interval: 7
+  purge_keep_days: 3
+  db_url: sqlite:///home/homeassistant/.homeassistant/home-assistant_v2.db
+
+history:
+
+logbook:
+
+logger:
+  default: info
+
+updater:

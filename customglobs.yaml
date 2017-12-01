@@ -1,0 +1,26 @@
+  "*.*":
+    custom_ui_state_card: state-card-custom-ui
+### WEATHER
+  sensor.pws_temp_c:
+    state_card_mode: badges
+  sensor.pws_relative_humidity:
+    state_card_mode: badges
+  sensor.pws_precip_1d:
+    state_card_mode: badges
+  sensor.pws_wind_kph:
+    state_card_mode: badges
+  sun.sun:
+    state_card_mode: badges
+  sensor.moon:
+    state_card_mode: badges
+## SYSTEM
+  sensor.cpu_used:
+    state_card_mode: badges
+  sensor.ram_used:
+    state_card_mode: badges
+  sensor.disk_used_home:
+    state_card_mode: badges
+  sensor.received_eth0:
+    state_card_mode: badges
+  sensor.sent_eth0:
+    state_card_mode: badges

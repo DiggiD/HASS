@@ -1,0 +1,34 @@
+#### VIEWS ####
+#  default_view:
+#    view: yes
+#    name: OverWatch
+#    entities:
+#     - group.time
+#     - group.weather_overview
+  family_view:
+    view: yes
+    name: FAMILY
+    entities:
+      - group.family
+  room_d_view:
+    view: yes
+    name: D's ROOM
+    entities:
+      - group.roomDlights
+  device_view:
+    view: yes
+    name: NETWORK
+    entities:
+      - group.devices
+      - group.appletv
+  security_view:
+    view: yes
+    name: SECURITY
+    entities:
+      - group.security
+  system_view:
+    view: yes
+    name: rD SYS
+    entities:
+      - group.sysinfo
+      - group.sysboot

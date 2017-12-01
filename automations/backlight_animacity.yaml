@@ -1,0 +1,14 @@
+- alias: BackLight Animacity
+  initial_state: true
+  hide_entity: true
+  id: '02'
+  trigger:
+  - platform: state
+    entity_id: input_number.backlight_animation_speed
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: "home/roomd/backlight/set"
+      payload: '{"transition": {{ trigger.to_state.state | int }}}'
+      retain: true
+#      payload: '{"transition": {{ states.input_number.backlight_animation_speed.state | int }}}'

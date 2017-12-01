@@ -1,0 +1,8 @@
+- platform: moon
+- platform: wunderground
+  api_key: !secret WU_key
+  monitored_conditions:
+    - temp_c
+    - relative_humidity
+    - precip_1d
+    - wind_kph

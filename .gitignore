@@ -1,0 +1,37 @@
+# General File Extensions
+
+*.pid
+*.xml
+*.csr
+*.crt
+*.key
+*.conf
+*.db-journal
+*.log
+*.db
+*.txt
+*.deb
+*.sh
+*.pickle
+*.py
+
+
+# Folders
+www
+lib
+deps
+tts
+icloud
+panels
+custom_components
+
+# Files
+
+secrets.yaml
+known_devices.yaml
+
+
+# Other Github Related Files
+.*
+!/.gitignore
+

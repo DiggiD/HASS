@@ -1,0 +1,18 @@
+d_status:
+  name: D's Status
+  options:
+   - "Home"
+#   - "Work"
+   - "Away"
+   - "Sleeping"
+  initial: "Home"
+  icon: mdi:owl
+g_status:
+  name: Gauri's Status
+  options:
+   - "Home"
+#   - "Work"
+   - "Away"
+   - "Sleeping"
+  initial: "Home"
+  icon: mdi:panda

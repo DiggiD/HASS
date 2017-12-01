@@ -1,0 +1,6 @@
+backlight_animation_speed:
+  name: Animation Speed
+  initial: 150
+  min: 0
+  max: 250
+  step: 10

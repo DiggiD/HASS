@@ -1,0 +1,3 @@
+- platform: mqtt
+  name: "HA_MQTT"
+  state_topic: home/roomd/backlight/set

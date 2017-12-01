@@ -1,0 +1,61 @@
+#### GROUPS ####
+  time:
+    name: Date / Time
+    entities:
+      - sensor.date
+      - sensor.time
+      - sensor.utc
+  weather_overview:
+    name: Weather Overview
+    entities:
+      - sensor.pws_temp_c
+      - sensor.pws_relative_humidity
+      - sensor.pws_precip_1d
+      - sensor.pws_wind_kph
+      - sun.sun
+      - sensor.moon
+  security:
+    entities:
+      - camera.backdoor
+  devices:
+    name: Network Devices
+    entities:
+      - device_tracker.appletv
+      - device_tracker.wdtv
+      - device_tracker.dsipad
+      - device_tracker.dsapple_watch
+      - device_tracker.gpad
+      - device_tracker.gaurismacbookair
+  appletv:
+    name: Apple TV
+    entities:
+      - remote.ss_home
+      - media_player.ss_home
+  family:
+    name: Family
+    entities:
+      - device_tracker.dsiphone
+      - device_tracker.gaurisiphone
+      - input_select.d_status
+      - input_select.g_status
+  roomDlights:
+    name: BackLight
+    entities:
+      - light.backlight
+      - input_number.backlight_animation_speed
+      - script.nightlight
+  sysinfo:
+    name: HA System Info
+    entities:
+      - sensor.since_last_boot
+      - sensor.cpu_used
+      - sensor.ram_used
+      - sensor.disk_used_home
+      - sensor.ipv4_address_eth0
+      - sensor.received_eth0
+      - sensor.sent_eth0
+  sysboot:
+    name: HA Boot Notify
+    entities:
+      - automation.shutdown_notification
+      - automation.startup_notification
