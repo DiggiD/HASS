@@ -10,11 +10,12 @@
     name: FAMILY
     entities:
       - group.family
+      - group.scripts
   room_d_view:
     view: yes
     name: D's ROOM
     entities:
-      - group.roomDlights
+      - group.droombacklight
   device_view:
     view: yes
     name: NETWORK

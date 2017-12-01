@@ -1,0 +1,10 @@
+goodnight:
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.D_status
+        option: "Sleeping"
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.Gauri_status
+        option: "Sleeping"

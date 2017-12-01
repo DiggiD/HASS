@@ -20,6 +20,7 @@
   devices:
     name: Network Devices
     entities:
+      - device_tracker.dlinkrouter1
       - device_tracker.appletv
       - device_tracker.wdtv
       - device_tracker.dsipad
@@ -36,9 +37,14 @@
     entities:
       - device_tracker.dsiphone
       - device_tracker.gaurisiphone
+  scripts:
+    name: Presence Automation
+    entities:
+      - script.goodmorning
+      - script.goodnight
       - input_select.d_status
       - input_select.g_status
-  roomDlights:
+  droombacklight:
     name: BackLight
     entities:
       - light.backlight
