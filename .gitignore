@@ -9,6 +9,8 @@
 *.db-journal
 *.log
 *.db
+*.db-shm
+*.db-wal
 *.txt
 *.deb
 *.sh
