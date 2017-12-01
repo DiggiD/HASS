@@ -6,5 +6,5 @@ goodnight:
         option: "Sleeping"
     - service: input_select.select_option
       data:
-        entity_id: input_select.Gauri_status
+        entity_id: input_select.G_status
         option: "Sleeping"
