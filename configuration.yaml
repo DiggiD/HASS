@@ -149,7 +149,7 @@ script: !include_dir_merge_named scripts/
 group: !include_dir_merge_named groups/
 automation: !include_dir_merge_list automations/
 camera: !include camera.yaml
-#binary_sensor: !include binary_sensor.yaml
+binary_sensor: !include binary_sensor.yaml
 
 discovery:
 
