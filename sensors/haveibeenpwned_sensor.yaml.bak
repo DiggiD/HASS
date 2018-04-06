@@ -1,5 +1,0 @@
-#- platform: haveibeenpwned
-#  email:
-#    - !secret d
-#    - !secret b
-#    - !secret c

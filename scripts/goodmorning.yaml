@@ -1,4 +1,5 @@
 goodmorning:
+  alias: Good Morning
   sequence:
     - service: input_select.select_option
       data:
@@ -8,3 +9,15 @@ goodmorning:
       data:
         entity_id: input_select.G_status
         option: "Home"
+    - alias: Lights On
+      service: light.turn_on
+      data:
+        entity_id: light.backlight
+#        transition: 10
+        brightness: 255
+        effect: "solid"
+        color_name: "white"
+    - delay:
+        seconds: 5
+    - service: switch.turn_on
+      entity_id: switch.flux

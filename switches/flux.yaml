@@ -2,11 +2,13 @@ platform: flux
 lights:
   - light.backlight
 name: Flux
-#  start_time: '7:00'
-stop_time: '04:00'
-start_colortemp: 5000
-sunset_colortemp: 3000
-stop_colortemp: 1900
-brightness: 200
-disable_brightness_adjust: True
+start_time: '07:00'
+stop_time: '01:00'
+start_colortemp: 20000
+sunset_colortemp: 5000
+stop_colortemp: 2000
+#brightness: 200
+#disable_brightness_adjust: True
 mode: rgb
+transition: 30
+interval: 60

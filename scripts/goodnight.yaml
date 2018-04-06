@@ -1,4 +1,5 @@
 goodnight:
+  alias: Good Night
   sequence:
     - service: input_select.select_option
       data:
@@ -8,3 +9,5 @@ goodnight:
       data:
         entity_id: input_select.G_status
         option: "Sleeping"
+    - service: switch.turn_off
+      entity_id: switch.flux

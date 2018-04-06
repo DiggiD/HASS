@@ -9,7 +9,7 @@
     view: yes
     name: FAMILY
     entities:
-      - group.family
+      - group.presence
       - group.scripts
   room_d_view:
     view: yes
@@ -22,9 +22,9 @@
     entities:
       - group.devices
       - group.appletv
-  security_view:
+  cameras:
     view: yes
-    name: SECURITY
+    name: CAMERAS
     entities:
       - group.security
   system_view:

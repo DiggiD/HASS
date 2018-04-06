@@ -5,7 +5,7 @@ d_status:
 #   - "Work"
    - "Away"
    - "Sleeping"
-  initial: "Home"
+  initial: "Away"
   icon: mdi:owl
 g_status:
   name: Gauri's Status
@@ -14,5 +14,5 @@ g_status:
 #   - "Work"
    - "Away"
    - "Sleeping"
-  initial: "Home"
+  initial: "Away"
   icon: mdi:panda

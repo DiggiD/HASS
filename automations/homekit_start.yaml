@@ -1,0 +1,10 @@
+- alias: Homekit Start
+  initial_state: 'on'
+  hide_entity: true
+  id: '09'
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - delay: 00:02
+    - service: homekit.start

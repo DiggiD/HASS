@@ -1,0 +1,22 @@
+- alias: sunset
+  initial_state: 'on'
+  hide_entity: true
+  id: '10'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: "{{ state.attributes.elevation }}"
+    # Can be a positive or negative number
+    below: -4.0
+  condition:
+    condition: state
+    entity_id: device_tracker.dsiphone
+    state: 'home'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.flux
+    - service: light.turn_on
+      data:
+        entity_id: light.backlight
+        brightness: 255
+        transition: 120

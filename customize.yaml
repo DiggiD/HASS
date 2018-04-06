@@ -7,19 +7,3 @@
     hidden: true
   sensor.ds_iphone_battery_state:
     hidden: true
-  device_tracker.appletv:
-    homebridge_hidden: true
-  group.devices:
-    homebridge_hidden: true
-  group.family:
-    homebridge_hidden: true
-  group.time:
-    homebridge_hidden: true
-#  group.environment:
-#    homebridge_hidden: true
-  group.weather_overview:
-    homebridge_hidden: true
-#  group.weather:
-#    homebridge_hidden: true
-  group.appletv:
-    homebridge_hidden: true

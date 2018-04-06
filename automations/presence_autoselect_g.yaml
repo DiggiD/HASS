@@ -1,0 +1,26 @@
+- alias: (Presence) G Home
+  initial_state: 'on'
+  hide_entity: true
+  id: '06'
+  trigger:
+    platform: state
+    entity_id: device_tracker.gaurisiphone
+    to: 'home'
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.G_status
+      option: Home
+- alias: (Presence) G Away
+  initial_state: 'on'
+  hide_entity: true
+  id: '07'
+  trigger:
+    platform: state
+    entity_id: device_tracker.gaurisiphone
+    to: 'away'
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.G_status
+      option: Away

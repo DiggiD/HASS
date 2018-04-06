@@ -1,3 +1,8 @@
 - platform: ffmpeg
   name: BackDoor
   input: !secret BackDoorCam
+#- platform: proxy
+#  entity_id: camera.backdoor
+#  max_stream_width: 360
+#  max_image_width: 480
+#  image_refresh_rate: 5.0

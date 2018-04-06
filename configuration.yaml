@@ -24,9 +24,9 @@ zeroconf:
 
 customizer:
   custom_ui: local
-#  hide_attributes:
-#    - node_id
-#    - value_index
+  hide_attributes:
+    - node_id
+    - value_index
 
 frontend:
   themes:
@@ -34,52 +34,76 @@ frontend:
       paper-toggle-button-checked-button-color: green
       label-badge-yellow: yellow
 
-panel_iframe:
-  configurator:
-    title: Editor
-    icon: mdi:wrench
-    url: http://rD.local:3218
-
 #upnp:
 #  external_port: 80
 
 http:
   api_password: !secret api_password
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
 
-#conversation:
-
-#tts:
-#  - platform: google
-#    language: 'en'
+wake_on_lan:
 
 ios:
 
-notify:
-  - name: D
-    platform: html5
-#    gcm_api_key: !secret ben_gcm_api_key
-#    gcm_sender_id: !secret ben_gcm_sender_id
+homekit:
+  auto_start: False
+  filter:
+    include_domains:
+      - sensor
+      - switch
+      - light
+    exclude_entities:
+      - sensor.disk_use_percent_home
+      - sensor.ds_iphone_battery_level
+      - sensor.processor_use
+      - sensor.memory_use_percent
+      - sensor.pws_precip_1d
+
+#notify:
+#  - name: HASS Telegram
+#    platform: telegram
+#    chat_id:
+
+#telegram_bot:
+#  - platform: polling
+#    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+#    allowed_chat_ids:
+#      - CHAT_ID_1
 
 ifttt:
   key: !secret ifttt_key
 
 mqtt:
-  broker: 192.168.0.200
+  broker: !secret mqtt_host
   port: 1883
   client_id: HA_bridge
+  keepalive: 60
   username: pi
   password: !secret mqtt_key
   discovery: true
   discovery_prefix: HA
 
 ffmpeg:
-  ffmpeg_bin: /usr/bin/avconv
+  ffmpeg_bin: /usr/bin/ffmpeg
+
+#image_processing:
+#  - platform: dlib_face_detect
+#    keep_images_without_faces: False
+#    source:
+#      - entity_id: camera.backdoor
+#        name: "Detect"
+#  - platform: dlib_face_identify
+#    keep_known_faces: true
+#    source:
+#      - entity_id: camera.backdoor
+#        name: "Identify"
+#    faces:
+#      D: /home/homeassistant/.homeassistant/www/Dface.jpg
 
 #apple_tv:
 #  - host: 192.168.0.106
-#    login_id: 00000000-21de-a038-d734-2fc4bda64bd4
+#    login_id: !secret appletv_id
 #    name: SS_Home
 #    start_off: false
 #    credentials:
@@ -113,9 +137,9 @@ light:
     flash: true
     rgb: true
     optimistic: false
-    qos: 0
+    qos: 1
 
-###########INCLUDES#####
+###########        INCLUDES       ###########
 input_number: !include inputs/input_number.yaml
 input_select: !include inputs/input_select.yaml
 device_tracker: !include device_tracker.yaml
@@ -141,6 +165,9 @@ history:
 logbook:
 
 logger:
-  default: info
+#  default: info
+   default: warning
+   logs:
+      homeassistant.components.homekit: debug
 
 updater:

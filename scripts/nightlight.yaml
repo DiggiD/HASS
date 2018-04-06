@@ -1,14 +1,19 @@
 nightlight:
+  alias: Night Light
   sequence:
-    - service: light.turn_off
+    - alias: Light Off
+      service: light.turn_off
       data:
         entity_id: light.backlight
-    - service: light.turn_on
+#        transition: 20
+    - alias: Night Light On
+      service: light.turn_on
       data:
         entity_id: light.backlight
         effect: "solid"
         color_name: "red"
-        brightness: 15
+        brightness: 30
+#        transition: 10
     - delay:
         minutes: 1
     - service: light.turn_off

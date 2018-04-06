@@ -16,7 +16,7 @@
 *.sh
 *.pickle
 *.py
-
+*.off
 
 # Folders
 www
@@ -31,9 +31,8 @@ custom_components
 
 secrets.yaml
 known_devices.yaml
-
+entity_registry.yaml
 
 # Other Github Related Files
 .*
 !/.gitignore
-

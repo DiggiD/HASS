@@ -1,0 +1,41 @@
+- alias: (Presence) D Home
+  initial_state: 'on'
+  hide_entity: true
+  id: '03'
+  trigger:
+    platform: state
+    entity_id: device_tracker.dsiphone
+    to: 'home'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.D_status
+        option: Home
+    - service: switch.turn_on
+      entity_id: switch.flux
+- alias: (Presence) D Away
+  initial_state: 'on'
+  hide_entity: true
+  id: '04'
+  trigger:
+    platform: state
+    entity_id: device_tracker.dsiphone
+    to: 'not_home'
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.D_status
+      option: Away
+- alias: (Presence) D Sleeping
+  initial_state: 'on'
+  hide_entity: true
+  id: '05'
+  trigger:
+    platform: state
+    entity_id: input_select.D_status
+    to: "Sleeping"
+  action:
+    - service: switch.turn_off
+      entity_id: switch.flux
+    - service: script.turn_on
+      entity_id: script.nightlight
