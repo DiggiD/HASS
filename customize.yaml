@@ -1,8 +1,4 @@
 #### UNUSED ENTITIES
-  media_player.ss_home:
-    hidden: true
-  remote.ss_home:
-    hidden: true
   sensor.ds_iphone_battery_level:
     hidden: true
   sensor.ds_iphone_battery_state:

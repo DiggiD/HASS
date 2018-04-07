@@ -11,20 +11,25 @@
     entities:
       - group.presence
       - group.scripts
-  room_d_view:
+  living_room_view:
+    view: yes
+    name: LVING ROOM
+    entities:
+      - group.appletv
+  d_room_view:
     view: yes
     name: D's ROOM
     entities:
-      - group.droombacklight
+      - group.droom_lights
   device_view:
     view: yes
     name: NETWORK
     entities:
       - group.devices
       - group.appletv
-  cameras:
+  security:
     view: yes
-    name: CAMERAS
+    name: SECURITY
     entities:
       - group.security
   system_view:
