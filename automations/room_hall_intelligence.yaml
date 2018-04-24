@@ -14,6 +14,7 @@
         state: 'true'
       - condition: time
         after: '18:30:00'
+        before: '00:00:00'
   action:
     - service: homeassistant.turn_on
       entity_id: group.hall_lights
@@ -54,3 +55,5 @@
         minutes: 5:00
     - service: light.turn_off
       entity_id: light.bar
+    - service: homeassistant.turn_off
+      entity_id: group.hall_lights

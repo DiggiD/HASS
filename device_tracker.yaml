@@ -13,5 +13,5 @@
 
   track_new_devices: true
   home_interval: 10
-  interval_seconds: 120
+  interval_seconds: 60
   consider_home: 0:10
