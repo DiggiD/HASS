@@ -1,0 +1,65 @@
+columns: 4
+column_width: 75px
+row_height: 75px
+entities:
+#  - entity: light.kitchen
+#    icon: mdi:silverware-variant
+#    column: 1
+#    row: 1
+#  - entity: light.landing
+#    icon: mdi:stairs
+#    column: 2
+#    row: 1
+#  - entity: light.bathroom
+#    icon: mdi:hot-tub
+#    row: 1
+  - entity: light.backlight
+    icon: mdi:hotel
+    column: 4
+    row: 1
+
+  - entity: light.livingroom
+    icon: mdi:sofa
+    column: 1
+    row: 2
+
+  - entity: script.remote_bedroom_bright
+    icon: mdi:hotel
+    label: Bright
+    column: 4
+    row: 2
+
+#  - entity: script.remote_livingroom_bright
+#    label: Bright
+#    icon: mdi:sofa
+#    column: 1
+#    row: 3
+
+  - entity: script.remote_bedroom_relax
+    icon: mdi:hotel
+    label: Relax
+    column: 4
+    row: 3
+
+#  - entity: script.remote_livingroom_dim
+#    label: Dim
+#    icon: mdi:sofa
+#    column: 1
+#    row: 4
+  - entity: script.remote_bedroom_dim
+    label: Dim
+    icon: mdi:hotel
+    column: 4
+    row: 4
+
+#  - entity: script.remote_livingroom_movie
+#    label: Movie
+#    icon: mdi:sofa
+#    column: 1
+#    row: 5
+
+  - entity: script.nightlight
+    label: Night
+    icon: mdi:hotel
+    column: 4
+    row: 5

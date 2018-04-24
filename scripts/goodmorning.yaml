@@ -9,15 +9,31 @@ goodmorning:
       data:
         entity_id: input_select.G_status
         option: "Home"
-    - alias: Lights On
-      service: light.turn_on
+    - condition: state
+      entity_id: sensor.dark_outside
+      state: 'false'
+    - service: light.turn_on
       data:
         entity_id: light.backlight
-#        transition: 10
-        brightness: 255
+        brightness: 10
         effect: "solid"
-        color_name: "white"
+        rgb_color: [98,15,0]
+        transition: 30
     - delay:
-        seconds: 5
-    - service: switch.turn_on
-      entity_id: switch.flux
+        seconds: 30.00
+    - service: light.turn_on
+      data:
+        entity_id: light.backlight
+        rgb_color: [147,120,51]
+        brightness: 100
+        transition: 180
+    - delay:
+        seconds: 180.00
+    - service: light.turn_on
+      data:
+        entity_id: light.backlight
+        rgb_color: [255,220,160]
+        brightness: 255
+        transition: 300
+    - delay:
+        seconds: 300.00

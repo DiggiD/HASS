@@ -1,0 +1,12 @@
+- platform: template
+  sensors:
+    hline_1:
+      value_template: hline
+    hline_2:
+      value_template: hline
+    hline_3:
+      value_template: hline
+    hline_4:
+      value_template: hline
+    hline_5:
+      value_template: hline

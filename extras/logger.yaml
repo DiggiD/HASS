@@ -1,0 +1,24 @@
+include:
+  domains:
+#    - alarm_control_panel
+    - light
+    - binary_sensor
+    - device_tracker
+
+  entities:
+#    - sensor.bad_weather
+#    - sensor.dark_outside
+    - sensor.home_status
+    - sensor.memory_use_percent
+    - sensor.processor_use
+#    - sensor.average_light_level
+#- sensor.average_temperature
+
+exclude:
+  entities:
+#    - light.lr_right
+#    - light.mb_ceiling
+#    - light.mb_stairs
+#    - light.bath
+#    - light.attic
+    - binary_sensor.random_binary_sensor

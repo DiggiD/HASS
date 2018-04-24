@@ -1,0 +1,69 @@
+fadelighton:
+  alias: Light - Fade In
+  sequence:
+    - condition: state
+      entity_id: light.backlight
+      state: 'off'
+#    - condition: time
+#      after: '19:30:00'
+#      before: '23:00:00'
+    - service: light.turn_on
+      data:
+        entity_id: light.backlight
+        brightness: 10
+#        effect: "solid"
+#        rgb_color: [100,100,100]
+        transition: 3
+    - delay:
+        seconds: 3.00
+    - service: light.turn_on
+      data:
+        entity_id: light.backlight
+#        rgb_color: [200,200,200]
+        brightness: 100
+        transition: 6
+    - delay:
+        seconds: 6.00
+    - service: light.turn_on
+      data:
+        entity_id: light.backlight
+#        rgb_color: [255,255,255]
+        brightness: 200
+        transition: 9
+    - delay:
+        seconds: 9.00
+#    - service: switch.turn_on
+#      entity_id: switch.flux
+fadelightoff:
+  alias: Light - Fade Out
+  sequence:
+    - condition: state
+      entity_id: light.backlight
+      state: 'on'
+    - service: light.turn_on
+      data:
+        entity_id: light.backlight
+        brightness: 200
+#        effect: "solid"
+#        rgb_color: [100,100,100]
+        transition: 3
+    - delay:
+        seconds: 3.00
+    - service: light.turn_on
+      data:
+        entity_id: light.backlight
+#        rgb_color: [200,200,200]
+        brightness: 100
+        transition: 6
+    - delay:
+        seconds: 6.00
+    - service: light.turn_on
+      data:
+        entity_id: light.backlight
+#        rgb_color: [255,255,255]
+        brightness: 10
+        transition: 9
+    - delay:
+        seconds: 9.00
+    - service: homeassistant.turn_off
+      entity_id: light.backlight

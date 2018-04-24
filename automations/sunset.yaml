@@ -7,16 +7,16 @@
     entity_id: sun.sun
     value_template: "{{ state.attributes.elevation }}"
     # Can be a positive or negative number
-    below: -4.0
+    below: 16.0
   condition:
-    condition: state
-    entity_id: device_tracker.dsiphone
-    state: 'home'
+    - condition: state
+      entity_id: device_tracker.dsiphone
+      state: 'home'
+    - condition: time
+      before: '20:00:00'
+    - condition: state
+      entity_id: light.backlight
+      state: 'off'
   action:
-    - service: switch.turn_on
-      entity_id: switch.flux
-    - service: light.turn_on
-      data:
-        entity_id: light.backlight
-        brightness: 255
-        transition: 120
+    - service: script.turn_on
+      entity_id: sunset.script

@@ -1,0 +1,56 @@
+- alias: Lighting - ON (Home/Night)
+  initial_state: 'on'
+  hide_entity: true
+  id: '30'
+  trigger:
+    platform: state
+    entity_id: sensor.home_status
+    to: 'Occupied'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.dark_outside
+        state: 'true'
+      - condition: time
+        after: '18:30:00'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: group.hall_lights
+    - service: script.notify
+      data:
+        call_dark_outside: 1
+
+- alias: Lighting - OFF (Home/Day)
+  initial_state: 'on'
+  hide_entity: true
+  id: '31'
+  trigger:
+    platform: state
+    entity_id: sensor.home_status
+    to: 'Occupied'
+  condition:
+    condition: state
+    entity_id: sensor.dark_outsie
+    state: 'false'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.hall_lights
+    - service: script.notify
+      data:
+        call_light_outside: 1
+
+- alias: Lighting - OFF (Hall/Night)
+  initial_state: 'on'
+  hide_entity: true
+  id: '37'
+  trigger:
+    platform: time
+    at: '22:25:00'
+  action:
+    - service: light.turn_off
+      entity_id: group.display
+    - delay:
+        minutes: 5:00
+    - service: light.turn_off
+      entity_id: light.bar

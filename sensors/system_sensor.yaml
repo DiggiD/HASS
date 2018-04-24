@@ -11,3 +11,9 @@
       arg: enxb827ebe7c1e9
     - type: network_out
       arg: enxb827ebe7c1e9
+
+- platform: rest
+  resource: https://pypi.python.org/pypi/homeassistant/json
+  name: HASS version upstream
+  value_template: "{{ value_json.info.version }}"
+  scan_interval: 3600

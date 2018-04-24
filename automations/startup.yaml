@@ -1,0 +1,23 @@
+- alias: Homekit Start
+  initial_state: 'on'
+  hide_entity: true
+  id: '09'
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - delay: 00:05
+    - service: homekit.start
+
+- alias: ISS Proximity Alert
+  initial_state: 'on'
+  hide_entity: true
+  id: '36'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.iss
+  action:
+    service: script.notify
+    data:
+      tell: d
+      call_iss: 1

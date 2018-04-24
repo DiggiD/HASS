@@ -1,0 +1,235 @@
+- alias: Telegram - Hall lights toggle
+  initial_state: on
+  hide_entity: true
+  id: '17'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/hall'
+  action:
+    - service: homeassistant.toggle
+      entity_id: group.hall_lights
+    - delay:
+        seconds: 2
+    - service: telegram_bot.send_message
+      data_template:
+        target: '{{ trigger.event.data.user_id }}'
+        message: "Halls lights have been turned {{states('group.hall_lights')}}."
+
+- alias: Telegram - D's room lights toggle
+  initial_state: on
+  hide_entity: true
+  id: '18'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/droom'
+  action:
+    - service: homeassistant.toggle
+      entity_id: light.backlight
+    - delay:
+        seconds: 2
+    - service: telegram_bot.send_message
+      data_template:
+        target: '{{ trigger.event.data.user_id }}'
+        message: "D's Room lights have been turned {{is_state('light.backlight')}}."
+
+- alias: Telegram - All lights on
+  initial_state: on
+  hide_entity: true
+  id: '19'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/onALL'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: group.all_lights
+    - service: telegram_bot.send_message
+      data_template:
+        target: '{{ trigger.event.data.user_id }}'
+        message: "All lights have been turned on."
+
+- alias: Telegram - All lights off
+  initial_state: on
+  hide_entity: true
+  id: '20'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/offALL'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.all_lights
+    - service: telegram_bot.send_message
+      data_template:
+        target: '{{ trigger.event.data.user_id }}'
+        message: "All lights have been turned off."
+
+- alias: Telegram - Maintenance mode toggle
+  initial_state: on
+  hide_entity: true
+  id: '21'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/maintenance'
+  action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.maintenance_mode
+    - service: telegram_bot.send_message
+      data_template:
+        target: '{{ trigger.event.data.user_id }}'
+        message: "Maintenance mode has been turned {{states('input_boolean.maintenance_mode')}}."
+
+- alias: Telegram - HA Restart
+  initial_state: on
+  hide_entity: true
+  id: '22'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/restart'
+  action:
+    - service: telegram_bot.send_message
+      data_template:
+        target: '{{ trigger.event.data.user_id }}'
+        message: "HA Restarting..."
+    - delay: 00:00:05
+    - service: shell_command.quick_restart
+
+- alias: Telegram - Holiday mode toggle
+  initial_state: on
+  hide_entity: true
+  id: '23'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/holiday'
+  action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.holiday_mode
+    - service: telegram_bot.send_message
+      data_template:
+        target: '{{ trigger.event.data.user_id }}'
+        message: "Holiday mode has been turned {{states('input_boolean.holiday_mode')}}"
+
+- alias: Telegram - Away mode
+  initial_state: on
+  hide_entity: true
+  id: '24'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/away'
+  action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.away_mode
+    - service: telegram_bot.send_message
+      data_template:
+        target: '{{ trigger.event.data.user_id }}'
+        message: "Away mode has been turned {{states('input_boolean.away_mode')}}."
+
+- alias: Telegram - Reply with Status
+  initial_state: on
+  hide_entity: true
+  id: '25'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/status'
+  action:
+    service: telegram_bot.send_message
+    data_template:
+      target: '{{ trigger.event.data.user_id }}'
+      message: "System is online!
+
+
+          Last system reboot was on {{ states('sensor.last_boot') }}.
+
+
+          Locations are showing as -
+
+
+          {% for state in states.device_tracker %}
+            {{- state.name }} - {{ state.state_with_unit }}
+
+          {% endfor %}
+
+
+          Lights are -
+          {% for state in states.light %}
+            {{- state.name }} - {{ state.state_with_unit }}
+
+          {% endfor %}"
+      keyboard: ["/lights, /occupancy", "/menu"]
+
+- alias: Telegram - Reply with Occupancy
+  initial_state: on
+  hide_entity: true
+  id: '26'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/occupancy'
+  action:
+    service: telegram_bot.send_message
+    data_template:
+      target: '{{ trigger.event.data.user_id }}'
+      message: "Locations are showing as -
+
+
+        {% for state in states.device_tracker %}
+          {{- state.name }} - {{state.state_with_unit}}
+
+        {% endfor %}"
+
+      keyboard: ["/away, /holiday", "/lights", "/menu"]
+
+- alias: Telegram - Reply with Menu
+  initial_state: on
+  hide_entity: true
+  id: '27'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/menu'
+  action:
+    service: telegram_bot.send_message
+    data_template:
+      target: '{{ trigger.event.data.user_id }}'
+      message: "Commands..."
+      keyboard: ["/lights, /occupancy", "/status"]
+
+- alias: Telegram - Reply with Lights
+  initial_state: on
+  hide_entity: true
+  id: '28'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/lights'
+  action:
+    service: telegram_bot.send_message
+    data_template:
+      target: '{{ trigger.event.data.user_id }}'
+      message: "Lights are -
+
+
+        {% for state in states.light %}
+          {{- state.name }} - {{state.state_with_unit}}
+
+        {% endfor %}"
+      keyboard: ["/onALL, /offALL", "/droom, /hall", "/menu"]

@@ -1,0 +1,3 @@
+quick_restart: sudo systemctl restart homeassistant
+
+quick_reboot: sudo reboot

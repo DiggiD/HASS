@@ -5,36 +5,43 @@
 #    entities:
 #     - group.time
 #     - group.weather_overview
-  family_view:
+  home_view:
     view: yes
-    name: FAMILY
+    name: HOME
+    icon: mdi:home-assistant
     entities:
-      - group.presence
-      - group.scripts
+      - group.time
+      - group.weather_overview
+      - group.occupancy
   living_room_view:
     view: yes
     name: LVING ROOM
+    icon: mdi:sofa
     entities:
-      - group.appletv
+      - group.appletvremote
+      - group.hall_lights
   d_room_view:
     view: yes
     name: D's ROOM
+    icon: mdi:gender-male
     entities:
       - group.droom_lights
-  device_view:
+  network_view:
     view: yes
     name: NETWORK
+    icon: mdi:lan
     entities:
       - group.devices
-      - group.appletv
-  security:
+  security_view:
     view: yes
     name: SECURITY
+    icon: mdi:security
     entities:
       - group.security
   system_view:
     view: yes
     name: rD SYS
+    icon: mdi:pi
     entities:
       - group.sysinfo
-      - group.sysboot
+      - group.maintenance

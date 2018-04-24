@@ -1,70 +1,140 @@
 #### GROUPS ####
   time:
-    name: Date / Time
+    name: ' '
     entities:
       - sensor.date
       - sensor.time
       - sensor.utc
   weather_overview:
-    name: Weather Overview
+    name: ' '
     entities:
       - sensor.pws_temp_c
       - sensor.pws_relative_humidity
       - sensor.pws_precip_1d
       - sensor.pws_wind_kph
+      - sensor.pws_wind_dir
+      - sensor.hline_1
+      - sensor.us_air_pollution_level
+      - sensor.us_air_quality_index
+      - sensor.us_main_pollutant
+      - sensor.hline_2
+      - sensor.pws_uv
+      - sensor.pws_solarradiation
       - sun.sun
       - sensor.moon
+      - sensor.pws_weather
+
   security:
+    name: Backdoor Cam
     entities:
       - camera.backdoor
-  devices:
-    name: Network Devices
+  systemdevices:
+    name: ' '
     entities:
-      - device_tracker.dlinkrouter1
+      - device_tracker.tplinkrouter
+      - device_tracker.dlinkrouter
+      - device_tracker.backdoorcam
+  mediadevices:
+    name: ' '
+    entities:
       - device_tracker.appletv
       - device_tracker.wdtv
-      - device_tracker.dsipad
+  mobiledevices:
+    name: ' '
+    entities:
       - device_tracker.dsapple_watch
+      - device_tracker.dsipad
       - device_tracker.gpad
       - device_tracker.gaurismacbookair
-  appletv:
-    name: Apple TV
+  appletvremote:
+    name: ' '
+    control: hidden
     entities:
       - remote.ss_home
       - media_player.ss_home
+  devices:
+    name: ' '
+    entities:
+      - group.systemdevices
+      - sensor.hline_1
+      - group.mediadevices
+      - sensor.hline_2
+      - group.mobiledevices
+      - sensor.hline_3
+      - group.presence
+      - sensor.hline_4
+      - group.all_devices
   presence:
-    name: Presence
+    name: ' '
     entities:
       - device_tracker.dsiphone
       - device_tracker.gaurisiphone
-  scripts:
-    name: Presence Automation
-    control: hidden
-    entities:
-      - script.goodmorning
-      - script.goodnight
-      - input_select.d_status
-      - input_select.g_status
   droom_lights:
-    name: D's Room Lights
+    name: ' '
     control: hidden
     entities:
       - light.backlight
-      - input_number.backlight_animation_speed
       - script.nightlight
+#      - light.backlight_fx
+      - input_number.backlight_animation_speed
+  hall_lights:
+    name: ' '
+    control: hidden
+    entities:
+      - light.display
+      - light.bar
+  occupancy:
+    name: ' '
+    control: hidden
+    entities:
+      - group.presence
+      - sensor.hline_1
+#      - alarm_control_panel.alarm
+      - sensor.home_status
+      - sensor.hline_2
+      - input_select.d_status
+      - input_select.g_status
+      - sensor.hline_3
+      - input_boolean.holiday_mode
+      - input_boolean.away_mode
+      - sensor.hline_4
+#      - input_boolean.guest_mode
+      - script.goodmorning
+      - script.goodnight
+      - sensor.hline_5
+      - group.all_automations
+#      - input_boolean.bathtime_mode
+#      - input_boolean.bedtime_mode
+#      - input_boolean.cycling_mode
+  maintenance:
+    name: Maintenance
+    control: hidden
+    entities:
+      - input_boolean.maintenance_mode
+      - sensor.hline_1
+      - script.quick_restart
+      - script.quick_reboot
+#      - script.upgrade_hass
+#      - script.github_pull
+      - sensor.hline_2
+#      - automation.shutdown_notification
+#      - automation.startup_notification
+#      - input_text.github_message
+#      - script.github_push
+#      - weblink.github
+#      - sensor.hline_3
+#      - script.sync_dropbox
+#      - weblink.dropbox
   sysinfo:
-    name: HA System Info
+    name: ' '
     entities:
       - sensor.since_last_boot
       - sensor.ipv4_address_enxb827ebe7c1e9
+      - sensor.hline_1
       - sensor.processor_use
       - sensor.memory_use_percent
       - sensor.disk_use_percent_home
       - sensor.network_in_enxb827ebe7c1e9
       - sensor.network_out_enxb827ebe7c1e9
-  sysboot:
-    name: HA Boot Notify
-    control: hidden
-    entities:
-      - automation.shutdown_notification
-      - automation.startup_notification
+      - sensor.hline_2
+      - sensor.ha_upstream

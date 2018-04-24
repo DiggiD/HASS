@@ -1,5 +1,7 @@
   "*.*":
     custom_ui_state_card: state-card-custom-ui
+  sensor.hline_*:
+    custom_ui_state_card: state-card-hline
 # WEATHER
   sensor.pws_temp_c:
     state_card_mode: badges
@@ -9,11 +11,22 @@
     state_card_mode: badges
   sensor.pws_wind_kph:
     state_card_mode: badges
+  sensor.pws_wind_dir:
+    state_card_mode: badges
+  sensor.pws_uv:
+    state_card_mode: badges
+  sensor.pws_solarradiation:
+    state_card_mode: badges
+  sensor.pws_weather:
+    state_card_mode: badges
   sun.sun:
     state_card_mode: badges
   sensor.moon:
     state_card_mode: badges
 # SYSTEM
+  automation.*:
+    confirm_controls_show_lock: true
+
   sensor.processor_use:
     state_card_mode: badges
   sensor.memory_use_percent:
@@ -24,3 +37,5 @@
     state_card_mode: badges
   sensor.network_out_enxb827ebe7c1e9:
     state_card_mode: badges
+
+#

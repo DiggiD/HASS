@@ -1,0 +1,12 @@
+maintenance_mode:
+  name: Maintenance mode
+  initial: off
+  icon: mdi:auto-fix
+
+holiday_mode:
+    name: Holiday mode
+    icon: mdi:airplane
+
+away_mode:
+    name: Away mode
+    icon: mdi:incognito

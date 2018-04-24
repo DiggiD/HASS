@@ -1,0 +1,31 @@
+- platform: mqtt_json
+  name: "BackLight"
+  state_topic: "home/roomd/backlight"
+  command_topic: "home/roomd/backlight/set"
+  effect: true
+  effect_list:
+    - solid
+    - bpm
+    - candy cane
+    - confetti
+    - cyclon rainbow
+    - dots
+    - fire
+    - glitter
+    - juggle
+    - lightning
+    - noise
+    - police all
+    - police one
+    - rainbow
+    - rainbow with glitter
+    - ripple
+    - sinelon
+    - twinkle
+  brightness: true
+#  brightness_scale: 200
+  color_temp: true
+  flash: true
+  rgb: true
+  optimistic: false
+  qos: 1

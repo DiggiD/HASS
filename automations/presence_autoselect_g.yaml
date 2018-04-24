@@ -18,6 +18,7 @@
   trigger:
     platform: state
     entity_id: device_tracker.gaurisiphone
+#    from: 'home'
     to: 'not_home'
   action:
     service: input_select.select_option

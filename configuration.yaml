@@ -23,53 +23,49 @@ sun:
 zeroconf:
 
 customizer:
-  custom_ui: local
-  hide_attributes:
-    - node_id
-    - value_index
+  custom_ui: hosted
 
 frontend:
-  themes:
-    Nominal:
-      paper-toggle-button-checked-button-color: green
-      label-badge-yellow: yellow
-
-#upnp:
-#  external_port: 80
+  javascript_version: auto
+  themes: !include_dir_merge_named extras/themes/
+  extra_html_url:
+    - /local/custom_ui/state-card-tiles.html
+    - /local/custom_ui/state-card-mini-media-player.html
+    - /local/custom_ui/state-card-hline.html
+  extra_html_url_es5:
+    - /local/custom_ui/state-card-tiles_es5.html
+    - /local/custom_ui/state-card-mini-media-player_es5.html
+    - /local/custom_ui/state-card-hline_es5.html
 
 http:
   api_password: !secret api_password
   ip_ban_enabled: true
   login_attempts_threshold: 3
 
-wake_on_lan:
-
-ios:
+#ios:
 
 homekit:
-  auto_start: False
+  auto_start: false
   filter:
     include_domains:
       - sensor
       - switch
       - light
     exclude_entities:
-      - sensor.disk_use_percent_home
-      - sensor.ds_iphone_battery_level
-      - sensor.processor_use
-      - sensor.memory_use_percent
-      - sensor.pws_precip_1d
+      - group.weather_overview
+      - group.sysinfo
 
-#notify:
-#  - name: HASS Telegram
-#    platform: telegram
-#    chat_id:
+telegram_bot:
+  - platform: polling
+    api_key: !secret tgram_key
+    parse_mode: html
+    allowed_chat_ids:
+      - !secret tgram_chatid
 
-#telegram_bot:
-#  - platform: polling
-#    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-#    allowed_chat_ids:
-#      - CHAT_ID_1
+notify:
+  - platform: telegram
+    name: d
+    chat_id: !secret tgram_chatid
 
 ifttt:
   key: !secret ifttt_key
@@ -108,48 +104,20 @@ ffmpeg:
 #    start_off: false
 #    credentials:
 
-light:
-  - platform: mqtt_json
-    name: "BackLight"
-    state_topic: "home/roomd/backlight"
-    command_topic: "home/roomd/backlight/set"
-    effect: true
-    effect_list:
-      - bpm
-      - candy cane
-      - confetti
-      - cyclon rainbow
-      - dots
-      - fire
-      - glitter
-      - juggle
-      - lightning
-      - noise
-      - police all
-      - police one
-      - rainbow
-      - rainbow with glitter
-      - ripple
-      - sinelon
-      - solid
-      - twinkle
-    brightness: true
-    flash: true
-    rgb: true
-    optimistic: false
-    qos: 1
-
 ###########        INCLUDES       ###########
+shell_command: !include shellcmds.yaml
+input_boolean: !include inputs/input_boolean.yaml
 input_number: !include inputs/input_number.yaml
 input_select: !include inputs/input_select.yaml
 device_tracker: !include device_tracker.yaml
 sensor: !include_dir_merge_list sensors/
+binary_sensor: !include binary_sensor.yaml
 switch: !include_dir_list switches/
 script: !include_dir_merge_named scripts/
 group: !include_dir_merge_named groups/
 automation: !include_dir_merge_list automations/
 camera: !include camera.yaml
-binary_sensor: !include binary_sensor.yaml
+light: !include_dir_merge_list lights/
 
 discovery:
 
@@ -160,14 +128,14 @@ recorder:
   purge_keep_days: 3
   db_url: sqlite:///home/homeassistant/.homeassistant/home-assistant_v2.db
 
-history:
+history: !include extras/logger.yaml
 
-logbook:
+logbook: !include extras/logger.yaml
 
 logger:
 #  default: info
    default: warning
-   logs:
-      homeassistant.components.homekit: debug
+#   logs:
+#      homeassistant.components.homekit: debug
 
 updater:

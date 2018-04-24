@@ -1,14 +1,15 @@
 platform: flux
 lights:
   - light.backlight
+#  - light.livingroom_display
 name: Flux
-start_time: '07:00'
+start_time: '06:00'
 stop_time: '01:00'
-start_colortemp: 20000
+start_colortemp: 8000
 sunset_colortemp: 5000
-stop_colortemp: 1600
+stop_colortemp: 1900
 #brightness: 200
 #disable_brightness_adjust: True
-mode: rgb
-transition: 30
-interval: 60
+mode: xy
+transition: 15
+interval: 90

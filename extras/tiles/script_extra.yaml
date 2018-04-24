@@ -1,0 +1,42 @@
+remote_livingroom_bright:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: scene.livingroom_bright
+
+remote_livingroom_dim:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: scene.livingroom_dim
+
+remote_livingroom_movie:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: scene.livingroom_movie
+
+remote_bedroom_bright:
+  sequence:
+    - service: script.set_hue_scene
+      data:
+        group: "Bedroom"
+        scene: "Bright"
+
+remote_bedroom_relax:
+  sequence:
+    - service: script.set_hue_scene
+      data:
+        group: "Bedroom"
+        scene: "Relax"
+
+remote_bedroom_dim:
+  sequence:
+    - service: script.set_hue_scene
+      data:
+        group: "Bedroom"
+        scene: "Dimmed"
+
+remote_bedroom_nightlight:
+  sequence:
+    - service: script.nightlight
+      data:
+        group: "Bedroom"
+        scene: "Nightlight"

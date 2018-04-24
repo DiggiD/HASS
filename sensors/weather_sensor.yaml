@@ -1,4 +1,5 @@
 - platform: moon
+
 - platform: wunderground
   api_key: !secret WU_key
   monitored_conditions:
@@ -6,3 +7,13 @@
     - relative_humidity
     - precip_1d
     - wind_kph
+    - wind_dir
+    - UV
+    - solarradiation
+    - weather
+
+- platform: airvisual
+  api_key: !secret airvisual_api
+  monitored_conditions: us
+  country: india
+  show_on_map: false

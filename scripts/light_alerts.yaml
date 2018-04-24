@@ -1,0 +1,7 @@
+dotalert:
+  alias: Dot Alert
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.backlight
+        flash: short

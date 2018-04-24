@@ -1,0 +1,7 @@
+quick_restart:
+  alias: Restart HA
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.maintenance_mode
+#    - delay: 00:00:02
+    - service: shell_command.quick_restart

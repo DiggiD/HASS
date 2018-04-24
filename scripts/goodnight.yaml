@@ -9,5 +9,5 @@ goodnight:
       data:
         entity_id: input_select.G_status
         option: "Sleeping"
-    - service: switch.turn_off
-      entity_id: switch.flux
+    - delay:
+        seconds: 1

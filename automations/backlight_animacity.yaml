@@ -1,4 +1,4 @@
-- alias: BackLight Animacity
+- alias: BackLight Animacity send
   initial_state: true
   hide_entity: true
   id: '02'
@@ -11,4 +11,3 @@
       topic: "home/roomd/backlight/set"
       payload: '{"transition": {{ trigger.to_state.state | int }}}'
       retain: true
-#      payload: '{"transition": {{ states.input_number.backlight_animation_speed.state | int }}}'
