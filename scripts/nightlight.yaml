@@ -1,8 +1,10 @@
 nightlight:
   alias: Night Light
   sequence:
-    - service: switch.turn_off
-      entity_id: switch.flux
+    - service: homeassistant.turn_off
+      entity_id:
+        - switch.flux
+        - automation.flux_start
     - service: light.turn_on
       data:
         entity_id: light.backlight
@@ -39,3 +41,7 @@ nightlight:
     - service: light.turn_off
       data:
         entity_id: light.backlight
+    - service: homeassistant.turn_on
+      entity_id:
+        - switch.flux
+        - automation.flux_start

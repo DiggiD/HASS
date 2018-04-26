@@ -3,11 +3,11 @@ notify:
     - service: script.message
       data_template: !include ../extras/notifier.yaml
 
-#message:
-#  sequence:
+message:
+  sequence:
 #    - service: script.announce
 #      data_template:
-#        no_say: '{{ no_say }}'
+#        no_say: 1
 #        media_player: '{{ media_player }}'
 #        message: '{{ message }}'
     - service: script.text

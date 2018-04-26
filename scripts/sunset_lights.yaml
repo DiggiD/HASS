@@ -9,9 +9,9 @@ sunset:
         brightness: 50
         effect: "solid"
         rgb_color: [98,15,0]
-        transition: 120
+        transition: 60
     - delay:
-        seconds: 120.00
+        seconds: 60.00
     - delay:
         minutes: 7.00
     - condition: numeric_state
@@ -23,9 +23,9 @@ sunset:
         entity_id: light.backlight
         rgb_color: [147,100,61]
         brightness: 100
-        transition: 120
+        transition: 60
     - delay:
-        seconds: 120.00
+        seconds: 60.00
     - delay:
         minutes: 7.00
     - condition: numeric_state
@@ -37,8 +37,8 @@ sunset:
         entity_id: light.backlight
         rgb_color: [255,210,100]
         brightness: 200
-        transition: 120
+        transition: 60
     - delay:
-        seconds: 120.00
+        seconds: 60.00
     - service: homeassistant.turn_on
       entity_id: switch.flux

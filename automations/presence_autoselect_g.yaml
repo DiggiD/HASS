@@ -20,6 +20,8 @@
     entity_id: device_tracker.gaurisiphone
 #    from: 'home'
     to: 'not_home'
+    for:
+      minutes: 10
   action:
     service: input_select.select_option
     data:

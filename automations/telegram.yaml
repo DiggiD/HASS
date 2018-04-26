@@ -34,7 +34,7 @@
     - service: telegram_bot.send_message
       data_template:
         target: '{{ trigger.event.data.user_id }}'
-        message: "D's Room lights have been turned {{is_state('light.backlight')}}."
+        message: "D's Room lights have been turned {{states('light.backlight')}}."
 
 - alias: Telegram - All lights on
   initial_state: on

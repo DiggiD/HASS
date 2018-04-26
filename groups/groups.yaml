@@ -32,6 +32,7 @@
     name: ' '
     entities:
       - device_tracker.tplinkrouter
+      - device_tracker.dlinkwart
       - device_tracker.dlinkrouter
       - device_tracker.backdoorcam
   mediadevices:
@@ -44,6 +45,7 @@
     entities:
       - device_tracker.dsapple_watch
       - device_tracker.dsipad
+      - device_tracker.dsmacposhpro
       - device_tracker.gpad
       - device_tracker.gaurismacbookair
   appletvremote:

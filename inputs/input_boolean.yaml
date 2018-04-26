@@ -1,6 +1,6 @@
 maintenance_mode:
   name: Maintenance mode
-  initial: off
+#  initial: off
   icon: mdi:auto-fix
 
 holiday_mode:

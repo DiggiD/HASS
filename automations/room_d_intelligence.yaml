@@ -1,0 +1,25 @@
+- alias: Lighting - ON (D's Room)
+  initial_state: 'on'
+  hide_entity: true
+  id: '38'
+  trigger:
+    platform: state
+    entity_id: input_select.D_status
+    to: 'Home'
+  condition:
+    condition: state
+    entity_id: sensor.dark_outside
+    state: 'true'
+  action:
+    - service: script.fadelighton
+
+- alias: Lighting - OFF (D's Room)
+  initial_state: 'on'
+  hide_entity: true
+  id: '39'
+  trigger:
+    platform: state
+    entity_id: input_select.D_status
+    to: 'Away'
+  action:
+    - service: script.fadelightoff

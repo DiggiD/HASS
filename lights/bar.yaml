@@ -1,6 +1,6 @@
 - platform: mqtt
   name: "Bar"
-  state_topic: "stat/ST-02/RESULT"
+  state_topic: "stat/ST-02/POWER"
   command_topic: "cmnd/ST-02/POWER"
   value_template: '{{ value_json["POWER"] }}'
 #  availability_topic: "tele/ST-02/LWT"

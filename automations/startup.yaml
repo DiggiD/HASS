@@ -10,7 +10,7 @@
     - service: homekit.start
 
 - alias: ISS Proximity Alert
-  initial_state: 'on'
+  initial_state: 'off'
   hide_entity: true
   id: '36'
   trigger:

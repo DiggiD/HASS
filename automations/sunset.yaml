@@ -1,5 +1,5 @@
 - alias: sunset
-  initial_state: 'on'
+  initial_state: 'off'
   hide_entity: true
   id: '10'
   trigger:

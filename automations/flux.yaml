@@ -3,19 +3,18 @@
   hide_entity: true
   id: '28'
   trigger:
-    platform: homeassistant
-    event: start
+    - platform: numeric_state
+      entity_id: sun.sun
+      value_template: "{{ state.attributes.elevation }}"
+    # Can be a positive or negative number
+      below: 20.0
+    - platform: state
+      entity_id: sensor.darkoutside
+      to: 'true'
   condition:
-    condition: or
-    conditions:
-      - condition: numeric_state
-        entity_id: sun.sun
-        value_template: "{{ state.attributes.elevation }}"
-      # Can be a positive or negative number
-        below: 20.0
-      - condition: state
-        entity_id: sensor.darkoutside
-        state: 'true'
+    condition: state
+    entity_id: switch.flux
+    state: 'off'
   action:
     - delay: 00:01
     - service: homeassistant.turn_on
@@ -25,19 +24,18 @@
   hide_entity: true
   id: '29'
   trigger:
-    platform: homeassistant
-    event: start
+    - platform: numeric_state
+      entity_id: sun.sun
+      value_template: "{{ state.attributes.elevation }}"
+    # Can be a positive or negative number
+      above: 20.0
+    - platform: state
+      entity_id: sensor.darkoutside
+      to: 'false'
   condition:
-    condition: or
-    conditions:
-      - condition: numeric_state
-        entity_id: sun.sun
-        value_template: "{{ state.attributes.elevation }}"
-      # Can be a positive or negative number
-        above: 10.0
-      - condition: state
-        entity_id: sensor.darkoutside
-        state: 'false'
+    condition: state
+    entity_id: switch.flux
+    state: 'on'
   action:
     - delay: 00:01
     - service: homeassistant.turn_off

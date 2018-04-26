@@ -1,5 +1,5 @@
 - alias: Occupancy - Return home
-  initial_state: on
+  initial_state: 'on'
   hide_entity: true
   id: '12'
   trigger:
@@ -13,7 +13,7 @@
       - input_boolean.away_mode
 
 - alias: Occupancy - Nobody home
-  initial_state: on
+  initial_state: 'on'
   hide_entity: true
   id: '13'
   trigger:
@@ -32,7 +32,7 @@
 #        - script.empty_bedroom
 
 - alias: Occupancy - Holiday Mode
-  initial_state: on
+  initial_state: 'on'
   hide_entity: true
   id: '14'
   trigger:
@@ -48,7 +48,7 @@
       entity_id: input_boolean.away_mode
 
 - alias: Occupancy - Trackable device detected
-  initial_state: on
+  initial_state: 'off'
   hide_entity: true
   id: '15'
   trigger:
@@ -61,7 +61,7 @@
       message: 'New trackable device detected'
 
 - alias: Occupancy - Verify ios D
-  initial_state: on
+  initial_state: 'off'
   hide_entity: true
   id: '16'
   trigger:

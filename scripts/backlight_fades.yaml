@@ -21,17 +21,17 @@ fadelighton:
         entity_id: light.backlight
 #        rgb_color: [200,200,200]
         brightness: 100
-        transition: 6
+        transition: 3
     - delay:
-        seconds: 6.00
+        seconds: 3.00
     - service: light.turn_on
       data:
         entity_id: light.backlight
 #        rgb_color: [255,255,255]
         brightness: 200
-        transition: 9
+        transition: 6
     - delay:
-        seconds: 9.00
+        seconds: 6.00
 #    - service: switch.turn_on
 #      entity_id: switch.flux
 fadelightoff:
@@ -54,16 +54,16 @@ fadelightoff:
         entity_id: light.backlight
 #        rgb_color: [200,200,200]
         brightness: 100
-        transition: 6
+        transition: 3
     - delay:
-        seconds: 6.00
+        seconds: 3.00
     - service: light.turn_on
       data:
         entity_id: light.backlight
 #        rgb_color: [255,255,255]
         brightness: 10
-        transition: 9
+        transition: 6
     - delay:
-        seconds: 9.00
-    - service: homeassistant.turn_off
+        seconds: 6.00
+    - service: light.turn_off
       entity_id: light.backlight
