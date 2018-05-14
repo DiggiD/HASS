@@ -1,0 +1,10 @@
+platform: template
+switches:
+  pihole:
+    value_template: '{{ states.sensor.pihole_status.state }}'
+    turn_on:
+      service: script.turn_on
+      entity_id: script.pihole_on
+    turn_off:
+      service: script.turn_on
+      entity_id: script.pihole_off

@@ -1,5 +1,5 @@
 - alias: sunset
-  initial_state: 'off'
+  initial_state: 'on'
   hide_entity: true
   id: '10'
   trigger:
@@ -7,16 +7,18 @@
     entity_id: sun.sun
     value_template: "{{ state.attributes.elevation }}"
     # Can be a positive or negative number
-    below: 16.0
+    below: 20.0
   condition:
-    - condition: state
-      entity_id: device_tracker.dsiphone
-      state: 'home'
-    - condition: time
-      before: '20:00:00'
-    - condition: state
-      entity_id: light.backlight
-      state: 'off'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: device_tracker.dsiphone
+        state: 'home'
+      - condition: time
+        before: '20:00:00'
+      - condition: state
+        entity_id: light.backlight
+        state: 'off'
   action:
-    - service: script.turn_on
+    - service: homeassistant.turn_on
       entity_id: sunset.script

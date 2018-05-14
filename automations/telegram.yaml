@@ -16,6 +16,7 @@
       data_template:
         target: '{{ trigger.event.data.user_id }}'
         message: "Halls lights have been turned {{states('group.hall_lights')}}."
+        keyboard: ["/onALL, /offALL", "/roomD, /roomG", "/menu"]
 
 - alias: Telegram - D's room lights toggle
   initial_state: on
@@ -25,7 +26,7 @@
     platform: event
     event_type: telegram_command
     event_data:
-      command: '/droom'
+      command: '/roomD'
   action:
     - service: homeassistant.toggle
       entity_id: light.backlight
@@ -35,6 +36,7 @@
       data_template:
         target: '{{ trigger.event.data.user_id }}'
         message: "D's Room lights have been turned {{states('light.backlight')}}."
+        keyboard: ["/onALL, /offALL", "/roomG, /hall", "/menu"]
 
 - alias: Telegram - All lights on
   initial_state: on
@@ -232,4 +234,4 @@
           {{- state.name }} - {{state.state_with_unit}}
 
         {% endfor %}"
-      keyboard: ["/onALL, /offALL", "/droom, /hall", "/menu"]
+      keyboard: ["/onALL, /offALL", "/roomD, /roomG", "/hall, /menu"]

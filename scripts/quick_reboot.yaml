@@ -1,6 +1,0 @@
-quick_reboot:
-  alias: Reboot rD [PI]
-  sequence:
-    - service: homeassistant.turn_on
-      entity_id: input_boolean.maintenance_mode
-    - service: shell_command.quick_reboot

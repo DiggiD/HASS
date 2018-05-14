@@ -20,7 +20,7 @@ message: >
     {% else %}
       {% set greeting = ["Hi, " , "Good evening, " , "Hello, "] %}
     {% endif %}
-
+    {{ greeting|random }}
   {%- endmacro -%}
 
   {%- macro inform() -%}
@@ -82,6 +82,8 @@ message: >
     {% if is_state('binary_sensor.iss', 'on') %}
       The international space station is above us now. There are
       {{ states.binary_sensor.iss.attributes['number_of_people_in_space'] }} people in space right now.
+    {% else %}
+      {{ outside_weather() }}
     {% endif %}
   {%- endmacro -%}
 
@@ -114,7 +116,7 @@ message: >
   {# ************************************* #}
 
 
-  {{ [greeting(), inform()] | random }}
+  {{- [greeting(), inform()]|random }}
   {% if call_unknown == 1 %}
     {{ unknown() }}
   {% endif %}

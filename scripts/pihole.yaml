@@ -1,0 +1,11 @@
+pihole_on:
+  sequence:
+    - service: shell_command.pihole_on
+
+pihole_off:
+  sequence:
+    - service: shell_command.pihole_off
+
+pihole_update:
+  sequence:
+    - service: shell_command.pihole_update

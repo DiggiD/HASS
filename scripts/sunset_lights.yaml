@@ -1,5 +1,5 @@
 sunset:
-  alias: Sunset Lights
+  alias: Sunset
   sequence:
     - service: homeassistant.turn_off
       entity_id: switch.flux
@@ -27,7 +27,7 @@ sunset:
     - delay:
         seconds: 60.00
     - delay:
-        minutes: 7.00
+        minutes: 9.00
     - condition: numeric_state
       entity_id: sun.sun
       value_template: "{{ state.attributes.elevation }}"

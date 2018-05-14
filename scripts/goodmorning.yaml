@@ -9,9 +9,12 @@ goodmorning:
       data:
         entity_id: input_select.G_status
         option: "Home"
-    - condition: state
-      entity_id: sensor.dark_outside
-      state: 'false'
+    - condition: time
+      before: '08:00:00'
+    - service: homeassistant.turn_off
+      entity_id:
+        - switch.flux
+        - automation.flux_start
     - service: light.turn_on
       data:
         entity_id: light.backlight
@@ -37,3 +40,5 @@ goodmorning:
         transition: 300
     - delay:
         seconds: 300.00
+    - service: homeassistant.turn_on
+      entity_id: automation.flux_start

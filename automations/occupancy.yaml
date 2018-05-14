@@ -4,8 +4,8 @@
   id: '12'
   trigger:
     platform: state
-    entity_id: group.presence
-    to: 'home'
+    entity_id: group.home_status
+    to: 'Occupied'
   action:
     service: homeassistant.turn_off
     entity_id:
@@ -21,7 +21,7 @@
     entity_id: sensor.home_status
     to: 'Unoccupied'
     for:
-      minutes: 10
+      hours: 3
   action:
     - service: homeassistant.turn_off
       entity_id:

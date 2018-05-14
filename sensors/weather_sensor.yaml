@@ -17,3 +17,5 @@
   monitored_conditions: us
   country: india
   show_on_map: false
+
+- platform: api_streams

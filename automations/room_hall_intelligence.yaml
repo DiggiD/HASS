@@ -7,7 +7,7 @@
       entity_id: sensor.dark_outside
       to: 'true'
     - platform: time
-      at: '22:23:00'
+      at: '18:30:00'
 #  condition: state
 #  entity_id: sensor.home_status
 #  to: 'Occupied'
@@ -39,7 +39,7 @@
   id: '37'
   trigger:
     platform: time
-    at: '22:25:00'
+    at: '22:00:00'
   action:
     - service: light.turn_off
       entity_id: light.display

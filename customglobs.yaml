@@ -2,6 +2,8 @@
     custom_ui_state_card: state-card-custom-ui
   sensor.hline_*:
     custom_ui_state_card: state-card-hline
+  "weblink.*":
+    icon: mdi:web
 # WEATHER
   sensor.pws_temp_c:
     state_card_mode: badges

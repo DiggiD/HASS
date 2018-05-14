@@ -1,0 +1,34 @@
+quick_reboot:
+  alias: Reboot rD [PI]
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.maintenance_mode
+    - service: shell_command.quick_reboot
+
+quick_restart:
+  alias: Restart HA
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.maintenance_mode
+#    - delay: 00:00:02
+    - service: shell_command.quick_restart
+
+upgrade_hass:
+  alias: Upgrade HA
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.maintenance_mode
+    - delay: 00:00:02
+    - service: shell_command.upgrade_hass
+
+github_push:
+  alias: Push To Github
+  sequence:
+    - condition: template
+      value_template: "{{ not is_state('input_text.github_message' , '' ) }}"
+    - service: shell_command.github_push
+    - service: persistent_notification.create
+      data:
+        notification_id: "Github_push_alert"
+        title: "Github"
+        message: "You have pushed your local files to github, you must merge the branches on github then sync the master branch here."

@@ -48,12 +48,12 @@ homekit:
   auto_start: false
   filter:
     include_domains:
-      - sensor
+#      - sensor
       - switch
       - light
-    exclude_entities:
-      - group.weather_overview
-      - group.sysinfo
+#    exclude_entities:
+#      - group.weather_overview
+#      - group.sysinfo
 
 telegram_bot:
   - platform: polling
@@ -67,12 +67,22 @@ notify:
     name: d
     chat_id: !secret tgram_chatid
 
+weblink:
+  entities:
+    - name: Github
+      url: !secret weblink_github
+    - name: Router
+      url: !secret weblink_router
+    - name: Pi-hole
+      url: !secret weblink_pihole
+
 ifttt:
   key: !secret ifttt_key
 
 mqtt:
   broker: !secret mqtt_host
   port: 1883
+  protocol: 3.1
   client_id: HA_bridge
   keepalive: 60
   username: pi
@@ -120,6 +130,7 @@ shell_command: !include shellcmds.yaml
 input_boolean: !include inputs/input_boolean.yaml
 input_number: !include inputs/input_number.yaml
 input_select: !include inputs/input_select.yaml
+input_text: !include inputs/input_text.yaml
 device_tracker: !include device_tracker.yaml
 sensor: !include_dir_merge_list sensors/
 binary_sensor: !include binary_sensor.yaml

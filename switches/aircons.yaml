@@ -1,0 +1,9 @@
+platform: mqtt
+name: "D's AirCon"
+state_topic: "AC-01/stat"
+command_topic: "AC-01/cmnd"
+qos: 1
+payload_on: "40,0xB2AE4D51F061840000000030B8"
+payload_off: "40,0xB2AE4D51F06184000000001098"
+retain: true
+optimistic: true

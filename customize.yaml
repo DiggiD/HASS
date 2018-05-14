@@ -38,29 +38,99 @@
   script.nightlight:
     icon: mdi:theme-light-dark
 
+  script.upgrade_hass:
+    icon: mdi:cloud-check
+    can_cancel: false
+
+  script.github_push:
+    icon: mdi:github-circle
+
+  script.pihole_off:
+    friendly_name: Turn Pi-Hole Off
+    icon: mdi:do-not-disturb
+
+  script.pihole_on:
+    friendly_name: Turn Pi-Hole On
+    icon: mdi:power
+
+  script.pihole_update:
+    friendly_name: Update Pi-Hole
+    icon: mdi:package-variant
+
+  sensor.pihole_dns:
+    friendly_name: DNS Service
+
+  sensor.pihole_blocking:
+    friendly_name: Ad Blocking
+
+  sensor.pi_hole_version:
+    friendly_name: Version
+
+  sensor.pihole_status_raw:
+    hidden: true
+
 
 #####    Sensors      ######
 
   sensor.home_status:
     icon: mdi:home-map-marker
 
+  sensor.hass_version:
+    friendly_name: Version
+
   sensor.processor_use:
     icon: mdi:chip
+
+  sensor.ads_percentage_today:
+    friendly_name: Percentage of Ad Traffic Blocked
+    unit_of_measurement: '%'
+    icon: mdi:ticket-percent
+
+  sensor.domains_being_blocked:
+    friendly_name: Total Domains Blocking
+    icon: mdi:do-not-disturb
+
+  sensor.ads_blocked_today:
+    friendly_name: Ads Blocked Today
+    icon: mdi:do-not-disturb
+
+  sensor.dns_queries_today:
+    friendly_name: DNS Queries Today
+    icon: mdi:note-text
+
+  sensor.unique_domains:
+    friendly_name: Unique Domains
+    icon: mdi:approval
+
+  sensor.queries_forwarded:
+    friendly_name: Queries Forwarded
+    icon: mdi:arrange-send-backward
+
+  sensor.queries_cached:
+    friendly_name: Queries Cached
+    icon: mdi:animation
+
+#######   SWITCHES     #######
+  switch.pihole:
+    friendly_name: Pi-Hole
+    entity_picture: /local/custom_icons/pihole.png
 
 #######   Inputs     #######
 
   input_boolean.holiday_mode:
-      custom_ui_state_card: state-card-custom-ui
-      hide_control: true
-      extra_badge:
-        - entity_id: input_boolean.holiday_mode
+    custom_ui_state_card: state-card-custom-ui
+    hide_control: true
+    extra_badge:
+      - entity_id: input_boolean.holiday_mode
 
   input_boolean.away_mode:
-      custom_ui_state_card: state-card-custom-ui
-      hide_control: true
-      extra_badge:
-        - entity_id: input_boolean.away_mode
+    custom_ui_state_card: state-card-custom-ui
+    hide_control: true
+    extra_badge:
+      - entity_id: input_boolean.away_mode
 
+  input_text.github_message:
+    icon: mdi:pencil
 
 #######    Devices   #######
 
@@ -89,5 +159,13 @@
     state_card_mode: badges
 
   group.presence:
+    custom_ui_state_card: state-card-custom-ui
+    state_card_mode: badges
+
+  group.espdroom:
+    custom_ui_state_card: state-card-custom-ui
+    state_card_mode: badges
+
+  group.esphall:
     custom_ui_state_card: state-card-custom-ui
     state_card_mode: badges

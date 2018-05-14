@@ -31,7 +31,8 @@
     name: NETWORK
     icon: mdi:lan
     entities:
-      - group.devices
+      - group.networkdevices
+      - group.esp
   security_view:
     view: yes
     name: SECURITY
@@ -44,4 +45,6 @@
     icon: mdi:pi
     entities:
       - group.sysinfo
+      - group.pihole
       - group.maintenance
+      - group.configexternal

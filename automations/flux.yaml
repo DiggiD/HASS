@@ -7,7 +7,7 @@
       entity_id: sun.sun
       value_template: "{{ state.attributes.elevation }}"
     # Can be a positive or negative number
-      below: 20.0
+      below: 45.0
     - platform: state
       entity_id: sensor.darkoutside
       to: 'true'
@@ -28,7 +28,7 @@
       entity_id: sun.sun
       value_template: "{{ state.attributes.elevation }}"
     # Can be a positive or negative number
-      above: 20.0
+      above: 45.0
     - platform: state
       entity_id: sensor.darkoutside
       to: 'false'

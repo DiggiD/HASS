@@ -48,13 +48,22 @@
       - device_tracker.dsmacposhpro
       - device_tracker.gpad
       - device_tracker.gaurismacbookair
+  espdroom:
+    name: ' '
+    entities:
+      - device_tracker.backlight
+  esphall:
+    name: ' '
+    entities:
+      - device_tracker.bar
+      - device_tracker.display
   appletvremote:
     name: ' '
     control: hidden
     entities:
       - remote.ss_home
       - media_player.ss_home
-  devices:
+  networkdevices:
     name: ' '
     entities:
       - group.systemdevices
@@ -66,6 +75,12 @@
       - group.presence
       - sensor.hline_4
       - group.all_devices
+  esp:
+    name: ' '
+    entities:
+      - group.esphall
+      - sensor.hline_1
+      - group.espdroom
   presence:
     name: ' '
     entities:
@@ -100,14 +115,10 @@
       - input_boolean.holiday_mode
       - input_boolean.away_mode
       - sensor.hline_4
-#      - input_boolean.guest_mode
       - script.goodmorning
       - script.goodnight
       - sensor.hline_5
       - group.all_automations
-#      - input_boolean.bathtime_mode
-#      - input_boolean.bedtime_mode
-#      - input_boolean.cycling_mode
   maintenance:
     name: Maintenance
     control: hidden
@@ -116,17 +127,37 @@
       - sensor.hline_1
       - script.quick_restart
       - script.quick_reboot
-#      - script.upgrade_hass
-#      - script.github_pull
       - sensor.hline_2
-#      - automation.shutdown_notification
-#      - automation.startup_notification
-#      - input_text.github_message
-#      - script.github_push
-#      - weblink.github
-#      - sensor.hline_3
-#      - script.sync_dropbox
-#      - weblink.dropbox
+      - sensor.hass_version
+      - script.upgrade_hass
+      - sensor.hline_3
+      - input_text.github_message
+      - script.github_push
+      - weblink.github
+  configexternal:
+    name: Configure External
+    entities:
+      - weblink.pihole
+      - sensor.hline_4
+      - weblink.router
+  pihole:
+    name: Ads Blocked
+    control: hidden
+    entities:
+      - switch.pihole
+      - sensor.ads_blocked_today
+      - sensor.ads_percentage_today
+      - sensor.dns_queries_today
+      - sensor.domains_being_blocked
+      - sensor.ads_blocked_today
+      - sensor.unique_domains
+      - sensor.queries_forwarded
+      - sensor.queries_cached
+      - sensor.pihole_dns
+      - sensor.pihole_blocking
+      - sensor.pi_hole_version
+      - script.pihole_update
+
   sysinfo:
     name: ' '
     entities:

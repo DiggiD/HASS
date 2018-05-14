@@ -1,3 +1,13 @@
 quick_restart: sudo systemctl restart homeassistant
 
 quick_reboot: sudo reboot
+
+upgrade_hass: /home/homeassistant/.homeassistant/extras/bash/upgrade-hass.sh
+
+github_push: /home/homeassistant/.homeassistant/extras/bash/git-send.sh '{{ states.input_text.github_message.state }}'
+
+pihole_on: !secret pi_hole_switch_on
+
+pihole_off: !secret pi_hole_switch_off
+
+pihole_update: "pihole -up"

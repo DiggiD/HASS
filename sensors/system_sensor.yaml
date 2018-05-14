@@ -14,6 +14,23 @@
 
 - platform: rest
   resource: https://pypi.python.org/pypi/homeassistant/json
-  name: HASS version upstream
+  name: HASS Version Upstream
   value_template: "{{ value_json.info.version }}"
   scan_interval: 3600
+
+- platform: command_line
+  name: HASS Version Installed
+  command: "cat /home/homeassistant/.homeassistant/.HA_VERSION"
+  #command: "cat /usr/local/bin/homeassistant | head -3 | tail -1 | cut -d# -f2"
+  value_template: '{{value[1:]}}'
+
+- platform: template
+  sensors:
+    hass_version:
+      value_template: "{%- if states.sensor.hass_version_upstream.state == states.sensor.hass_version_installed.state-%}{{states.sensor.hass_version_installed.state}} {% else %}{{states.sensor.hass_version_upstream.state}} Available{% endif%}"
+      icon_template: >-
+        {% if states.sensor.hass_version_upstream.state == states.sensor.hass_version_installed.state %}
+          mdi:checkbox-marked
+        {% else %}
+          mdi:checkbox-blank-outline
+        {% endif %}
