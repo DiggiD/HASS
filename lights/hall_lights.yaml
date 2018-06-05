@@ -1,4 +1,13 @@
 - platform: mqtt
+  name: "Bar"
+  state_topic: "stat/ST-02/POWER"
+  command_topic: "cmnd/ST-02/POWER"
+  value_template: '{{ value_json["POWER"] }}'
+  retain: true
+  qos: 1
+  optimistic: false
+
+- platform: mqtt
   name: "Display"
   state_topic: "stat/ST-01/POWER"
   command_topic: "cmnd/ST-01/POWER"

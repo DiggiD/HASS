@@ -11,6 +11,7 @@
     data:
       entity_id: input_select.G_status
       option: Home
+
 - alias: (Presence) G Away
   initial_state: 'on'
   hide_entity: true
@@ -18,12 +19,26 @@
   trigger:
     platform: state
     entity_id: device_tracker.gaurisiphone
-#    from: 'home'
     to: 'not_home'
     for:
       minutes: 10
   action:
-    service: input_select.select_option
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.G_status
+        option: Away
+
+- alias: (Presence) G Sleeping
+  initial_state: 'on'
+  hide_entity: true
+  id: '08'
+  trigger:
+    platform: state
+    entity_id: input_select.D_status
+    to: 'Sleeping'
+  action:
+    service: script.notify
     data:
-      entity_id: input_select.G_status
-      option: Away
+      tell: d
+      no_say: 1
+      call_goodnight: 1

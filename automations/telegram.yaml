@@ -217,7 +217,7 @@
 - alias: Telegram - Reply with Lights
   initial_state: on
   hide_entity: true
-  id: '28'
+  id: '40'
   trigger:
     platform: event
     event_type: telegram_command

@@ -40,7 +40,7 @@
     entity_id: input_boolean.away_mode
     to: 'on'
     for:
-      hours: 24
+      hours: 48
   action:
     - service: homeassistant.turn_on
       entity_id: input_boolean.holiday_mode
@@ -48,7 +48,7 @@
       entity_id: input_boolean.away_mode
 
 - alias: Occupancy - Trackable device detected
-  initial_state: 'off'
+  initial_state: 'on'
   hide_entity: true
   id: '15'
   trigger:
@@ -61,7 +61,7 @@
       message: 'New trackable device detected'
 
 - alias: Occupancy - Verify ios D
-  initial_state: 'off'
+  initial_state: 'on'
   hide_entity: true
   id: '16'
   trigger:

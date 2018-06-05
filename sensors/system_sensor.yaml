@@ -21,8 +21,7 @@
 - platform: command_line
   name: HASS Version Installed
   command: "cat /home/homeassistant/.homeassistant/.HA_VERSION"
-  #command: "cat /usr/local/bin/homeassistant | head -3 | tail -1 | cut -d# -f2"
-  value_template: '{{value[1:]}}'
+  value_template: '{{value}}'
 
 - platform: template
   sensors:

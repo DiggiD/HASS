@@ -9,3 +9,8 @@ pihole_off:
 pihole_update:
   sequence:
     - service: shell_command.pihole_update
+
+#ad_blocker:
+#  sequence:
+#    - service: switch.toggle
+#      entity_id: switch.pihole

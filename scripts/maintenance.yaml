@@ -4,14 +4,24 @@ quick_reboot:
     - service: homeassistant.turn_on
       entity_id: input_boolean.maintenance_mode
     - service: shell_command.quick_reboot
+    - service: persistent_notification.create
+      data:
+        notification_id: "reboot_alert"
+        title: "REBOOT"
+        message: "rPI REBOOTED"
 
 quick_restart:
   alias: Restart HA
   sequence:
     - service: homeassistant.turn_on
       entity_id: input_boolean.maintenance_mode
-#    - delay: 00:00:02
+    - delay: 00:00:02
     - service: shell_command.quick_restart
+    - service: persistent_notification.create
+      data:
+        notification_id: "restart_alert"
+        title: "HA"
+        message: "HA RESTARTED"
 
 upgrade_hass:
   alias: Upgrade HA
@@ -20,6 +30,17 @@ upgrade_hass:
       entity_id: input_boolean.maintenance_mode
     - delay: 00:00:02
     - service: shell_command.upgrade_hass
+    - service: script.notify
+      data:
+        no_say: 1
+        tell: d
+        call_upgrade: 1
+    - service: persistent_notification.create
+      data:
+        notification_id: "upgrade_alert"
+        title: "HA"
+        message: "HA UPGRADED"
+
 
 github_push:
   alias: Push To Github

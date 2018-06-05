@@ -1,6 +1,8 @@
 - platform: icloud
   username: !secret d
   password: !secret i
+  max_interval: 10
+  gps_accuracy_threshold: 100
 - platform: nmap_tracker
   hosts: 192.168.0.0/24
   exclude: 192.168.0.200

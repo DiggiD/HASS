@@ -134,7 +134,7 @@ input_text: !include inputs/input_text.yaml
 device_tracker: !include device_tracker.yaml
 sensor: !include_dir_merge_list sensors/
 binary_sensor: !include binary_sensor.yaml
-switch: !include_dir_list switches/
+switch: !include_dir_merge_list switches/
 script: !include_dir_merge_named scripts/
 group: !include_dir_merge_named groups/
 automation: !include_dir_merge_list automations/

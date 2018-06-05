@@ -52,6 +52,7 @@
     name: ' '
     entities:
       - device_tracker.backlight
+#      - device_tracker.aircond
   esphall:
     name: ' '
     entities:
@@ -94,6 +95,11 @@
       - script.nightlight
 #      - light.backlight_fx
       - input_number.backlight_animation_speed
+  droom_switches:
+    name: ' '
+    control: hidden
+    entities:
+      - switch.ds_ac
   hall_lights:
     name: ' '
     control: hidden

@@ -1,4 +1,4 @@
-- alias: (Presence) D Home/Night
+- alias: (Presence) D Home
   initial_state: 'on'
   hide_entity: true
   id: '03'
@@ -37,4 +37,9 @@
     entity_id: input_select.D_status
     to: 'Sleeping'
   action:
-    service: script.nightlight
+    - service: script.nightlight
+    - service: script.notify
+      data:
+        tell: d
+        no_say: 1
+        call_goodnight: 1

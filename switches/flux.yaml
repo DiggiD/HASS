@@ -1,15 +1,15 @@
-platform: flux
-lights:
-  - light.backlight
-#  - light.livingroom_display
-name: Flux
-start_time: '06:00'
-stop_time: '23:00'
-start_colortemp: 8000
-sunset_colortemp: 5000
-stop_colortemp: 1900
-#brightness: 200
-#disable_brightness_adjust: True
-mode: xy
-transition: 20
-interval: 90
+- platform: flux
+  lights:
+    - light.backlight
+  #  - light.livingroom_display
+  name: Flux
+  start_time: '06:00'
+  stop_time: '23:00'
+  start_colortemp: 8000
+  sunset_colortemp: 5000
+  stop_colortemp: 1900
+  #brightness: 200
+  #disable_brightness_adjust: True
+  mode: xy
+  transition: 30
+  interval: 90

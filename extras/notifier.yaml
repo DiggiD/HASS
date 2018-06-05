@@ -110,6 +110,10 @@ message: >
       "Until next time!"] | random }}
   {%- endmacro -%}
 
+  {%- macro goodnight() -%}
+    Good Night!
+  {%- endmacro -%}
+
 
   {# ************************************* #}
   {#  ******** Build the message ********  #}
@@ -165,6 +169,10 @@ message: >
 
   {% if call_bye == 1 %}
     {{ bye() }}
+  {% endif %}
+
+  {% if call_goodnight == 1 %}
+    {{ goodnight() }}
   {% endif %}
 
 #  {% if call_random_fact == 1 or is_state ('binary_sensor.random_binary_sensor' , 'on') %}

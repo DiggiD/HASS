@@ -26,6 +26,7 @@
     icon: mdi:gender-male
     entities:
       - group.droom_lights
+      - group.droom_switches
   network_view:
     view: yes
     name: NETWORK

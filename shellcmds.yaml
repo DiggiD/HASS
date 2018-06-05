@@ -10,4 +10,4 @@ pihole_on: !secret pi_hole_switch_on
 
 pihole_off: !secret pi_hole_switch_off
 
-pihole_update: "pihole -up"
+pihole_update: pihole -up
