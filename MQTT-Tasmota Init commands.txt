@@ -1,0 +1,8 @@
+# For all MQTT Switches and Lights
+retain:false
+
+#Tasmota Console Commands
+backlog switchretain off; buttonretain on; buttonretain off; powerretain on; poweronstate on
+
+#for MQTT Door sensor
+backlog switchretain on; buttonretain on; buttonretain off; powerretain on; poweronstate on
