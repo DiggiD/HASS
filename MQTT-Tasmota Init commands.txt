@@ -2,7 +2,7 @@
 retain:false
 
 #Tasmota Console Commands
-backlog switchretain off; buttonretain on; buttonretain off; powerretain on; poweronstate on
+backlog switchretain off; buttonretain on; powerretain on; poweronstate on; buttonretain off
 
 #for MQTT Door sensor
-backlog switchretain on; buttonretain on; buttonretain off; powerretain on; poweronstate on
+backlog switchretain on; buttonretain on; powerretain on; poweronstate on; buttonretain off
